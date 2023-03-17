@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/form-elements.css">
+    <link rel="stylesheet" href="~/Content/style-admin.css">
+
+    <link rel="shortcut icon" href="~/Content/images/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/images/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/Content/images/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/Content/images/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="~/Content/images/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body>
+
+    <!-- Top content -->
+    <div class="top-content">
+
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Đăng Nhập</h3>
+                                <p>Vui lòng nhập tài khoản và mật khẩu của bạn</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+
+                            @using (Html.BeginForm())
+                            {
+                                <h4 style="color: red;border-style:double; background: #eee; text-align: center;line-height:33px">@ViewBag.ThongBaoAdmin</h4>
+                                <div class="form-group">
+                                    <label class="sr-only" for="form-username">Tài khoản</label>
+                                    <input type="text" name="form-username" placeholder="Tài khoản..." class="form-username form-control" required id="form-username">
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="form-password">Mật khẩu</label>
+                                    <input type="password" name="form-password" placeholder="Mật khẩu..." class="form-password form-control" required id="form-password">
+                                </div>
+                                <button type="submit" class="btn">Đăng nhập</button>
+                            }
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 social-login">
+                            <h3>...or login with:</h3>
+                            <div class="social-login-buttons">
+                                <a class="btn btn-link-1 btn-link-1-facebook" href="#">
+                                    <i class="fa fa-facebook"></i> Facebook
+                                </a>
+                                <a class="btn btn-link-1 btn-link-1-twitter" href="#">
+                                    <i class="fa fa-twitter"></i> Twitter
+                                </a>
+                                <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
+                                    <i class="fa fa-google-plus"></i> Google Plus
+                                </a>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Javascript -->
+    <script src="~/Scripts/jquery-1.11.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.backstretch.min.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+
+
+</body>
+
+</html>
+

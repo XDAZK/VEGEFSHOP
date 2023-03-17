@@ -1,0 +1,208 @@
+﻿@model WebBanRau.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "SuaDonDatHang";
+    Layout = "~/Views/Layout/Admin/_LayoutAdmin.cshtml";
+}
+
+<style>
+    .col-md-10 {
+        color: black
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    input, textarea {
+        color: #000000;
+        outline: none;
+        font-size: .9em;
+        padding: 1em 3em 1em 1em;
+        border: none;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.85);
+        width: 62%;
+        color: #000;
+        border-radius: 30px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+    .form-horizontal {
+        text-align: center;
+        justify-content: center
+    }
+
+    .btn {
+        color: white;
+        background: #ea2858;
+        border: none;
+        padding: .7em 20px;
+        outline: none;
+        width: 44%;
+        font-size: 1em;
+        cursor: pointer;
+        letter-spacing: 1px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -ms-transition: 0.5s all;
+        border-radius: 30px;
+    }
+
+        .btn:hover {
+            color: #ea2858;
+            background: white;
+        }
+
+    .return {
+        margin-left: 40%;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        color: white;
+        background: #ea2858;
+        border: none;
+        padding: 0.7em 95px;
+        outline: none;
+        width: 22%;
+        font-size: 1em;
+        cursor: pointer;
+        letter-spacing: 1px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -ms-transition: 0.5s all;
+        border-radius: 30px;
+    }
+
+
+        .return:hover {
+            color: #ea2858;
+            background: white;
+        }
+
+    @@media(max-width: 1040px) {
+        .return {
+            margin-left: 28%;
+            padding: 0.7em 135px;
+            margin-top: 0px;
+            width: 44%;
+        }
+    }
+
+    @@media(max-width: 780px) {
+
+
+        .return {
+            margin-left: 28%;
+            padding: 0.7em 75px;
+            margin-top: 0px;
+            width: 44%;
+        }
+    }
+
+    @@media(max-width: 430px) {
+
+
+        .return {
+            margin-left: 28%;
+            margin-top: 0px;
+            width: 44%;
+            padding: 0.7em 55px;
+        }
+    }
+
+    @@media(max-width: 380px) {
+        .return {
+            margin-left: 28%;
+            margin-top: 0px;
+            width: 44%;
+            padding: 0.7em 49px;
+        }
+    }
+
+    @@media(max-width: 320px) {
+        .return {
+            margin-left: 28%;
+            margin-top: 0px;
+            width: 45%;
+            padding: 0.7em 38px;
+        }
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Đơn Đặt Hàng</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaDonHang)
+
+        <div class="form-group">
+            Khách hàng:
+            <div class="col-md-10">
+                <input type="text" disabled name="MaKH" value="@Model.KHACHHANG.HoTen" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            Đã Thanh Toán:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dathanhtoan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Dathanhtoan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Tình Trạng Giao Hàng:
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tinhtranggiaohang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Tinhtranggiaohang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Ngày Đặt:
+            <div class="col-md-10">
+                <input type="text" name="Ngaydat" disabled value="@Model.Ngaydat" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            Ngày Giao:
+            <div class="col-md-10">
+                <input type="text" disabled value="@Model.Ngaygiao" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            Tổng Tiền
+            <div class="col-md-10">
+                <input type="text" disabled name="TongTien" value="@Model.TongTien" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="return">
+    <a href="@Url.Action("DonDatHang","ChucNang")">TRỞ VỀ</a>
+</div>

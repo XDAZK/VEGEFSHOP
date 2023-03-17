@@ -1,0 +1,299 @@
+﻿@using WebBanRau.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SANPHAM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<!-- Custom CSS -->
+<style>
+    .navbar-inverse {
+        background-color: #fafbfd;
+        border-color: #a5cd39;
+    }
+
+    .thumbnail {
+        margin: 10px auto;
+        position: relative;
+        height: 420px;
+        background: #fafbfd;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .col-lg-4 {
+        width: 20%;
+    }
+
+    body {
+        margin: 0 auto;
+        padding-top: 70px;
+        background-color: #fafbfd;
+        font-size: 17px;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* background-image: url(images/background00.jpg); */
+    }
+
+    h3 {
+        height: 50px;
+        background-color: #fafbfd;
+        color: #201c29;
+        text-align: center;
+        padding-top: 10px;
+        margin: 10px 15px;
+        font-size: 28px;
+        text-decoration: none;
+        box-shadow: 0 3px #9dc336;
+        padding: 4px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #201c29;
+    }
+
+    .Login a {
+        margin-bottom: 20px;
+        line-height: 40px;
+        padding-right: 20px;
+        text-decoration: none;
+        color: #201c29;
+        display: block;
+    }
+
+    a {
+        color: #000000;
+    }
+
+
+    .footer {
+        width: 100%;
+        margin-top: 50px;
+        background-color: #78df40;
+        position: absolute;
+    }
+
+    .buy {
+        background-color: #78df40;
+    }
+
+    .container {
+        width: 1500px;
+    }
+</style>
+
+<link href="~/Content/backgroud.css" rel="stylesheet" />
+
+
+<div class="row carousel-holder">
+
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <img class="slide-image" src="~/Image/menu1.jpg" alt="">
+            </div>
+            <div class="item">
+                <img class="slide-image" src="~/Image/menu4.png" alt="">
+            </div>
+            <div class="item">
+                <img class="slide-image" src="~/Image/menu3.png" alt="">
+            </div>
+            <div class="item">
+                <img class="slide-image" src="~/Image/menu2.png" alt="">
+            </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+
+</div>
+
+
+<h3 href="/">SẢN PHẨM NỔI BẬT</h3>
+@foreach (var item in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("ChitietSP","HienThiSanPham" , new { id = @item.MaSP})">
+                <img style="border-radius:15%; width: 100%; height: 293px; " alt="@item.TenSP" src="@item.Anhbia">
+            </a>
+            <div class="caption" style="margin-bottom:10px">
+                <h4 class="pull-right"><strong>@String.Format("{0:0,0}", item.Giaban)₫ /@String.Format("{0:0,0}", item.DVT)</strong></h4>
+                <h4>
+                    <a href="@Url.Action("ChitietSP","HienThiSanPham" , new { id = @item.MaSP})">@item.TenSP</a>
+                </h4>
+                <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @item.MaSP, strUrl = Request.Url.ToString() })" class="buy">Thêm Vào Giỏ</a>
+            </div>
+
+            <div class="ratings">
+                <p class="pull-right">12 reviews</p>
+                <p>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .plus img {
+        border-radius: 15%;
+        width: 80%;
+        height: 50%;
+        padding-top: 20%;
+        margin-top: 20%;
+    }
+
+    .plus:hover img {
+        margin-top: 0;
+    }
+</style>
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail plus">
+        <a href="@Url.Action("AllSP","HienThiSanPham")">
+            <img src="~/Content/images/image-removebg-preview (1).png">
+
+            <div class="caption" style="margin-bottom:10px">
+                <a href="@Url.Action("AllSP","HienThiSanPham")" class="buy">Xem Thêm</a>
+            </div>
+        </a>
+    </div>
+</div>
+@section MenuTrang{
+    <style>
+        .MenuTrang {
+            text-align: center;
+            justify-content: center;
+            display: inline
+        }
+    </style>
+    <div class="MenuTrang">
+        @*Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount;*@
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+
+}
+
+
+<!-- Customer Comment -->
+@section Footer{
+
+    <div class="testimonial">
+        <div class="small-container">
+
+
+
+            <style>
+                .thumbnail {
+                    margin: 10px auto;
+                    position: relative;
+                    width: 260px;
+                    height: 420px;
+                    background: #fafbfd;
+                    border-radius: 20px;
+                    overflow: hidden;
+                }
+
+                .member {
+                    background-color: #78df40;
+                }
+
+                    .member p {
+                        color: #fafbfd;
+                    }
+
+                .last {
+                    float: left;
+                    text-align: center;
+                    margin-bottom: 15px;
+                    padding: 40px 20px;
+                    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+                    cursor: pointer;
+                    transition: transform 0.5s;
+                    width: 100%;
+                }
+
+                .col-5 {
+                    width: 220px;
+                    float: left;
+                    margin-left: 68px;
+                }
+
+                .last img {
+                    width: 50px;
+                    margin-top: 20px;
+                    border-radius: 50px;
+                }
+
+                .last:hover {
+                    transform: translateY(-10px);
+                }
+
+                .last h3 {
+                    width: 98%;
+                    padding-top: 15px;
+                    font-weight: 600;
+                    color: rgba(255, 255, 255, 0.877);
+                    font-size: 16px;
+                }
+
+                @@media(max-width: 1024px) {
+                    .last {
+                        width: 100%;
+                        margin-left: 0px;
+                    }
+                }
+            </style>
+            <div class="member last">
+                <i class="bi bi-chat-right-quote"></i>
+                <p>
+                    Organica có trang trại rau nhiệt đới đầu tiên tại Việt Nam đạt chứng nhận hữu cơ của Bộ Nông nghiệp Mỹ (USDA) &amp; EU Organic Farming (Liên minh châu Âu)
+                </p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div class="brands">
+        <div class="small-container">
+            <div class="row">
+                <div class="col-5">
+                    <img src="~/Content/images/caudat.jpg" alt="logo">
+                </div>
+
+                <div class="col-5">
+                    <img src="~/Content/images/dalatgap1.png" alt="logo">
+                </div>
+
+
+                <div class="col-5">
+                    <img src="~/Content/images/orfamr.png" alt="logo">
+                </div>
+                <div class="col-5">
+                    <img src="~/Content/images/organic-farm-logo-vector-16475229.jpg" alt="logo">
+                </div>
+                <div class="col-5">
+                    <img src="~/Content/images/3s.png" alt="logo">
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

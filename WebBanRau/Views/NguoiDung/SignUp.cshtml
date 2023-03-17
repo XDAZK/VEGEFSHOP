@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Layout/SignUp/_LayoutDangKy.cshtml";
+}
+
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        font-size: 15px;
+        font-weight: 200;
+        color: #f3e9e9;
+        line-height: 0.1px;
+        text-align: center;
+        background-image: url(/Image/trai-cay1.jpg);
+        background-size: cover;
+        -webkit-background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <form action="#" method="post">
+        @Html.ValidationSummary(true)
+        <div class="pom-agile">
+            <h4 style="background-color: red; border-radius: 20%; font: font: inherit;"> @ViewData["error"]</h4>
+            <input placeholder="Họ và Tên" name="HOTEN" class="pass" type="text" required="">
+            <span class="icon2"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="pom-agile">
+            <input placeholder="Tài Khoản" name="TaiKhoan" class="pass" type="text" required="">
+            <span class="icon2"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="pom-agile">
+            <input placeholder="Password" name="Pass" class="pass" type="password" required="">
+            <span class="icon2"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="pom-agile">
+            <input placeholder="Confirm Password" name="ConfirmPass" class="pass" type="password" required="">
+
+            <span class="icon2"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="pom-agile">
+            <input placeholder="Email" name="Email" class="pass" type="email" required="">
+            <span class="icon2"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="pom-agile">
+            <input placeholder="Địa Chỉ" name="Address" class="pass" type="text" required="">
+            <span class="icon2"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="pom-agile">
+            <input placeholder="Số Điện Thoại (Gồm 10 Số)" name="SDT" class="pass" type="text" pattern="[0-9]{10}" required="">
+            <span class="icon2"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="pom-agile">
+            <input placeholder="Ngày Sinh" name="Date" class="pass" type="date" required="">
+            <span class="icon2"><i aria-hidden="true"></i></span>
+        </div>
+        <div class="sub-w3l">
+            <div class="right-w3l">
+                <input class="submit" type="Submit" value="Sign Up">
+            </div>
+        </div>
+    </form>
+}

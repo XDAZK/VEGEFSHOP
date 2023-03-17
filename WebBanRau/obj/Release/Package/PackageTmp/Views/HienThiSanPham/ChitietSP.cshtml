@@ -1,0 +1,142 @@
+﻿@model WebBanRau.Models.SANPHAM
+
+@{
+    ViewBag.Title = "ChitietSP";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<link href="~/Content/style.css" rel="stylesheet" />
+
+<style>
+    .buy {
+        padding: 1.1rem 1rem;
+        background-color: var(--primary);
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+        font-size: 1.3rem;
+        transition: .5s;
+    }
+
+    .return {
+        color: #808080;
+        float: right;
+        font-size: 16px;
+    }
+
+        .return:hover {
+            transform: scale(1.5, 1.5);
+            color: #000000;
+            text-decoration: none;
+        }
+
+    .navbar-inverse {
+        background-color: #fafbfd;
+        border-color: #a5cd39;
+    }
+
+    body {
+        margin: 0 auto;
+        padding-top: 70px;
+        background-color: #fafbfd;
+        font-size: 17px;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        /* background-image: url(images/background00.jpg); */
+    }
+
+    h3 {
+        height: 50px;
+        background-color: #fafbfd;
+        color: #201c29;
+        text-align: center;
+        padding-top: 10px;
+        margin: 10px 15px;
+        font-size: 28px;
+        text-decoration: none;
+        box-shadow: 0 3px #9dc336;
+        padding: 4px;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        color: #201c29;
+    }
+
+    .Login a {
+        margin-bottom: 20px;
+        line-height: 40px;
+        padding-right: 20px;
+        text-decoration: none;
+        color: #201c29;
+        display: block;
+    }
+
+    a {
+        color: #000000;
+    }
+
+
+    .footer {
+        width: 100%;
+        margin-top: 50px;
+        background-color: #78df40;
+        position: absolute;
+    }
+
+    .title {
+        color: #3a3a3a;
+        font-weight: 600;
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+</style>
+<div class="container-Details">
+    <div class="card">
+        <div class="shoeBackground">
+            <div class="gradients">
+                <div class="gradient second" color="blue"></div>
+                <div class="gradient" color="red"></div>
+                <div class="gradient" color="green"></div>
+                <div class="gradient" color="orange"></div>
+                <div class="gradient" color="black"></div>
+            </div>
+            <a href="#" class="share"><i class="fas fa-share-alt"></i></a>
+
+            <img src="@Model.Anhbia" alt="" class="shoe show" color="blue">
+            <img src="@Model.Anhbia" alt="" class="shoe" color="red">
+            <img src="@Model.Anhbia" alt="" class="shoe" color="green">
+            <img src="@Model.Anhbia" alt="" class="shoe" color="orange">
+            <img src="@Model.Anhbia" alt="" class="shoe" color="black">
+
+        </div>
+        <div class="info">
+            <a class="big return" href="@Url.Action("AllSP","HienThiSanPham")"> X </a>
+            <div class="shoeName">
+                <div>
+                    <h1 class="big">@Model.TenSP</h1>
+
+                </div>
+            </div>
+            <div class="description">
+                <h3 class="title">Thông tin sản phẩm</h3>
+                <p class="text">@Model.Mota</p>
+            </div>
+
+            <div class="buy-price">
+                <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @Model.MaSP, strUrl = Request.Url.ToString() })" class="buy"><i class="fas fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+                <div class="price">
+
+                    <h1 class="pull-right"><strong>@String.Format("{0:0,0}", @Model.Giaban) vnđ</strong></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/app.js"></script>

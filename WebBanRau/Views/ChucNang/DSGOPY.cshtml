@@ -1,0 +1,238 @@
+﻿@model PagedList.PagedList<HOTRO>
+@using WebBanRau.Models
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "DSGOPY";
+    Layout = "~/Views/Layout/Admin/_LayoutAdmin.cshtml";
+}
+
+@helper Truncate(string input, int lenght)
+{
+    if (input.Length < lenght)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, lenght)<text>.....</text>
+    }
+}
+
+<h2 style="text-align:center;font-size: 24px;">GÓP Ý CỦA KHÁCH HÀNG </h2>
+
+<table class="table" border="1">
+    <tr>
+        <th>
+            @Html.DisplayName("Họ Tên")
+        </th>
+        <th>
+            @Html.DisplayName("Email")
+        </th>
+        <th>
+            @Html.DisplayName("Góp Ý")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LyDo)
+            </td>
+            <td class="tool">
+                @Html.ActionLink("Chi tiết", "GOPY_CHITIET", new { id = item.MaKH }) |
+
+                @Html.ActionLink("Xóa", "XoaGopy", new { id = item.MaHotro })
+
+            </td>
+
+
+        </tr>
+    }
+
+</table>
+@section MenuTrangAdmin{
+    <div class="page">
+        @Html.PagedListPager(Model, page => Url.Action("DSGOPY", new { page = page }))
+    </div>
+    <style>
+        .ADD-Btn {
+            margin-left: 40%;
+            width: 21%;
+            background: linear-gradient(to right, #1623ae, #090c5e);
+            margin-top: 10px;
+            margin-bottom: 10px;
+            float: left;
+        }
+
+            .ADD-Btn:hover {
+                background: linear-gradient(to left, #1623ae, #1892a5);
+            }
+
+                .ADD-Btn:hover .icon {
+                    background-color: #090c5e;
+                }
+
+            .ADD-Btn p {
+                float: left;
+            }
+
+        .text {
+            padding-top: 4px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            height: 30px;
+        }
+
+        .icon {
+            margin: 10px 10px;
+            width: 30px;
+            height: 30px;
+            padding-left: 10px;
+            border-radius: 50%;
+            background-color: #1623ae;
+        }
+
+        .pagination {
+            position: relative;
+            background: #fff;
+            display: flex;
+            padding: 10px 20px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.2);
+            text-align: center;
+            justify-content: center;
+        }
+
+            .pagination > li {
+                margin: 0 5px;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+
+                .pagination > li > a {
+                    color: #777;
+                    font-weight: 600;
+                    border-radius: 50%;
+                    display: block;
+                }
+
+                .pagination > li:hover a,
+                .pagination > li.active a {
+                    background: #333;
+                    color: #fff;
+                }
+
+        .tool:hover {
+            text-decoration: underline;
+        }
+
+        .page {
+            text-align: center;
+            justify-content: center;
+            display: inline;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        th {
+            height: 50px;
+            background: #3ab414;
+            color: #fafafa;
+            text-transform: uppercase;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        th, td {
+            padding-left: 20px;
+            padding-right: 10px;
+            padding-top: 15px;
+            padding-bottom: 20px;
+        }
+
+        .tool:hover {
+            text-decoration: underline;
+        }
+
+        tr:hover {
+            background-color: #ff006e;
+        }
+
+        @@media(max-width: 1024px) {
+            .ADD-Btn {
+                width: 30%;
+            }
+        }
+
+        @@media(max-width: 768px) {
+            .ADD-Btn {
+                width: 40%;
+                margin-left: 30%
+            }
+
+            .pagination {
+                width: 95%;
+                padding: 5px 20px;
+                margin-left: 15px;
+            }
+
+            th, td {
+                padding-left: 20px;
+                padding-right: 10px;
+                padding-top: 15px;
+                padding-bottom: 20px;
+            }
+        }
+
+        @@media(max-width: 430px) {
+            .ADD-Btn {
+                width: 55%;
+                margin-left: 22%
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            .pagination {
+                width: 95%;
+                padding: 5px 20px;
+                margin-left: 15px;
+            }
+        }
+
+        @@media(max-width: 320px) {
+            .ADD-Btn {
+                width: 70%;
+                margin-left: 15%
+            }
+
+            table {
+                font-size: 8px;
+            }
+
+            .pagination {
+                width: 95%;
+                padding: 5px 20px;
+                margin-left: 15px;
+                font-size: 10px;
+            }
+        }
+    </style>
+}

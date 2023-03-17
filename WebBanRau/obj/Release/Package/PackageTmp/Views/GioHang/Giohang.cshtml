@@ -1,0 +1,122 @@
+﻿@using WebBanRau.Models
+@model List<GioHang>
+@{
+    ViewBag.Title = "Giohang";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+@section GioHang{
+   
+    <link href="~/Content/GioHang.css" rel="stylesheet">
+
+
+
+    <style>
+        .navbar-inverse {
+            background-color: #fafbfd;
+            border-color: #a5cd39;
+        }
+
+        body {
+            font-size: 17px;
+        }
+
+        h3 {
+            height: 50px;
+            background-color: #fafbfd;
+            color: #201c29;
+            text-align: center;
+            padding-top: 10px;
+            margin: 10px 15px;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 0 3px #9dc336;
+            padding: 4px;
+        }
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: #201c29;
+        }
+
+        .Login a {
+            margin-bottom: 20px;
+            line-height: 40px;
+            padding-right: 20px;
+            text-decoration: none;
+            color: #201c29;
+            display: block;
+        }
+
+        a {
+            color: #fafbfd;
+        }
+
+
+        .footer {
+            width: 100%;
+            margin-top: 50px;
+            background-color: #78df40;
+            position: absolute;
+        }
+        .container {
+            padding-top: 15px;
+        }
+        .container {
+            width: 1500px;
+        }
+        .content-giohang {
+            margin-top: 120px;
+            font-size: 20px;
+            width: 100%;
+        }
+    </style>
+
+    <div class="content-giohang">
+        <h1 style="text-align:center">Giỏ hàng</h1>
+        <table align="center" border="1">
+            <tr style="text-align: center; font-weight: bold;">
+                <td>Mã Sản Phẩm</td>
+                <td>Tên Sản Phẩm</td>
+                <td>Ảnh</td>
+                <td>Số Lượng</td>
+                <td>Đơn Giá</td>
+                <td>Thành Tiền</td>
+                <td></td>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr style="text-align:center; ">
+                    <td>@item.masp</td>
+                    <td>@item.tensp</td>
+                    <td><img src="@item.anhbia" alt="Alternate Text" /></td>
+                    @using (Html.BeginForm("CapNhatGioHang", "Giohang", new { @id = item.masp }))
+                    {
+                <td><input type="number" min="1" name="Soluong" value="@item.soluong" style="width:50px" />@item.DVT</td>
+                        <td>@String.Format("{0:0,0 }", item.dongia) vnđ</td>
+                        <td>@String.Format("{0:0,0 }", item.thanhtien) vnđ</td>
+                        <td><a class="btn btn-danger" href="@Url.Action("XoaGioHang","GioHang", new {id = @item.masp})">Xóa</a></td>
+
+                    }
+
+                </tr>
+            }
+            <tr style="text-align:center;">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Số Lượng: @ViewBag.TongSoLuong</td>
+                <td colspan="3"><strong>Tổng Tiền: <p style="color:red; display:inline-block">@String.Format("{0:0,0 }", ViewBag.TongTien) vnđ</p></strong>  </td>
+            </tr>
+            <tr style="text-align:right; font-weight:bold;">
+
+                <td colspan="9">
+                    <a style=" background-color:red;color:white" href="@Url.Action("DatHang","GioHang")" class="btn btn-default">Đặt Hàng</a>
+                    <a style="background-color:white;color:black" class="btn btn-warning" href="@Url.Action("RemoveAll","GioHang")">Xóa Tất Cả</a>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+}

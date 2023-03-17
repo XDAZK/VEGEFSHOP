@@ -1,0 +1,494 @@
+﻿h3 {
+    height: 50px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding-top: 10px;
+    margin: 10px 15px;
+    font-size: 28px;
+}
+
+.carousel-inner {
+    height: auto;
+}
+
+.slide-image {
+    width: 2460px;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control, .item {
+    border-radius: 4px;
+}
+
+.caption {
+    height: 130px;
+}
+
+    .caption h4 {
+        white-space: nowrap;
+    }
+
+.col-md-9 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.thumbnail img {
+    width: 100%;
+}
+
+.ratings {
+    position: relative;
+    z-index: 2;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 20px;
+    color: #d17581;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+    .thumbnail .caption-full {
+        padding: 9px;
+        color: #333;
+    }
+
+.clear {
+    clear: both;
+}
+
+/* Nav comment */
+
+nav h3 {
+    margin-top: 50px;
+}
+
+/* Customer Comment */
+
+.testimonial {
+    width: 100%;
+    padding: 10px 0px 30px 0px;
+}
+
+    .testimonial .col-3 {
+        width: 350px;
+        float: left;
+        text-align: center;
+        margin-left: 30px;
+        margin-bottom: 15px;
+        padding: 40px 20px;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.5s;
+    }
+
+        .testimonial .col-3 img {
+            width: 50px;
+            margin-top: 20px;
+            border-radius: 50px;
+        }
+
+        .testimonial .col-3:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial .col-3 h3 {
+            width: 300px;
+            padding-top: 15px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.877);
+            font-size: 16px;
+        }
+
+    .testimonial .bi {
+        font-size: 20px;
+        color: #ff523b;
+    }
+
+.col-3 p {
+    font-size: 16px;
+    margin: 12px 0;
+    color: black;
+}
+
+/* Brand */
+
+.brands {
+    width: 100%;
+    margin: 40px 0px 30px 0px;
+}
+
+.col-5 {
+    width: 250px;
+    float: left;
+    margin-left: 30px;
+}
+
+    .col-5 img {
+        width: 100%;
+        cursor: pointer;
+        filter: grayscale(100%);
+    }
+
+        .col-5 img:hover {
+            filter: grayscale(0%);
+        }
+
+
+
+.nav.navbar-nav a {
+    text-decoration: none;
+    display: flex;
+}
+
+    .nav.navbar-nav a:hover {
+        color: greenyellow;
+    }
+
+.nav.navbar-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+    .nav.navbar-nav ul li {
+        position: relative;
+        width: 100%;
+        text-align: center;
+    }
+
+.nav.navbar-nav li:hover .dropdown li {
+    display: block;
+    top: 0;
+    color: greenyellow;
+}
+
+/*Design Khung Sản Phẩm*/
+
+
+    .thumbnail::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        width: 100%;
+        height: 100%;
+        background: #fafbfd;
+        transform: skewY(345deg);
+        transition: 0.5s;
+    }
+
+    .thumbnail:hover::before {
+        top: -75%;
+        transform: skewY(390deg);
+    }
+
+    .thumbnail::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-weight: 600;
+        font-size: 8em;
+        color: rgba(0, 0, 0, 0.1);
+    }
+
+    .thumbnail img {
+        position: relative;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+        z-index: 1;
+        max-height: 100%;
+        max-width: 100%;
+        transition: 0.5s;
+    }
+
+    .thumbnail:hover img {
+        max-width: 50%;
+        max-height: 50%;
+    }
+
+    .thumbnail .caption {
+        position: relative;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+        .thumbnail .caption h3 {
+            font-size: 10px;
+            color: aliceblue;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .thumbnail .caption .pull-right {
+            font-size: 24px;
+            color: #33c319;
+            font-weight: 500;
+            text-transform: none;
+            letter-spacing: 1px;
+        }
+
+    .thumbnail .buy {
+        position: relative;
+        top: 200px;
+        opacity: 0;
+        margin: 0 auto;
+        padding: 8px 30px;
+        margin-top: 0px;
+        color: aliceblue;
+        text-decoration: none;
+        background: #78df40;
+        border-radius: 30px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.5s;
+        font-weight: bold;
+    }
+
+    .thumbnail:hover .buy {
+        top: 0;
+        position: relative;
+        opacity: 10;
+    }
+
+/*Design Scroll bar*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 30px;
+    background: -webkit-gradient(linear,left top,left bottom,from(#ff8a00),to(#da1b60));
+    box-shadow: inset 2px 2px 2px rgba(255,255,255,0.25), inset -2px -2px -2px rgba(0,0,0,0.25);
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(to right,#201c29,#201c29 1px,#100e17 1px,#100e17);
+}
+
+@media(max-width:1200px) {
+    .col-sm-4.col-lg-4.col-md-4 {
+        display: flex
+    }
+
+    h3 {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .carousel.slide {
+        height: 630px;
+    }
+}
+
+@media(max-width: 970px) {
+    .carousel.slide {
+        margin-top: 20px;
+        height: 480px;
+    }
+}
+
+@media(max-width:1024px) {
+    .testimonial .small-container .col-3 {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+        .testimonial .small-container .col-3 .last {
+            margin-left: 15px;
+        }
+
+    .footer .top-foot h2 {
+        font-size: 20px;
+    }
+
+    .footer .top-foot .api {
+        width: 57%;
+    }
+
+        .footer .top-foot .api iframe {
+            width: 265px;
+        }
+
+    .brands .col-5 {
+        width: 15%;
+        float: left;
+        margin-right: 32px;
+        margin-left: 15px;
+    }
+}
+
+@media(max-width:780px) {
+    .footer .top-foot .intro {
+        width: fit-content;
+    }
+
+    .footer .top-foot .category {
+        width: 100%;
+    }
+
+    .footer .top-foot .api {
+        width: 100%;
+        margin-left: 50px;
+    }
+
+        .footer .top-foot .api iframe {
+            clear: both;
+            width: fit-content;
+        }
+
+    .footer .bottom-foot p {
+        width: 33%;
+    }
+
+    .brands .col-5 {
+        width: 15%;
+        float: left;
+        margin-right: 25px;
+        margin-left: 10px;
+    }
+}
+
+@media(max-width:730px) {
+    .carousel.slide {
+        margin-top: 20px;
+        height: 430px;
+    }
+}
+
+@media(max-width:600px) {
+    .carousel.slide {
+        margin-top: 20px;
+        height: 350px;
+    }
+}
+
+@media(max-width:560px) {
+    .carousel.slide {
+        margin-top: 20px;
+        height: 300px;
+    }
+}
+
+@media(max-width:430px) {
+    .footer .top-foot .intro {
+        width: fit-content;
+    }
+
+    .footer .top-foot .category {
+        width: fit-content;
+    }
+
+    .footer .top-foot .api {
+        clear: both;
+        width: 100%;
+    }
+
+        .footer .top-foot .api iframe {
+            width: fit-content;
+            margin-left: 10px;
+        }
+
+    .brands .row {
+        margin-left: 20%;
+    }
+
+    .brands .col-5 {
+        width: 60%;
+        float: left;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+    .footer .bottom-foot p {
+        width: fit-content;
+    }
+}
+
+@media(max-width:380px) {
+    .footer .top-foot .intro {
+        width: fit-content;
+    }
+
+    .footer .top-foot .category {
+        width: fit-content;
+    }
+
+    .footer .top-foot .api iframe {
+        width: fit-content;
+        margin-left: -20px;
+    }
+
+    .brands .row {
+        margin-left: 15%;
+    }
+
+    .brands .col-5 {
+        margin-right: 0px;
+        margin-left: 25px;
+    }
+
+    .footer .bottom-foot p {
+        width: fit-content;
+    }
+}
+
+@media(max-width:330px) {
+    .footer {
+        width: 100%;
+    }
+
+        .footer .top-foot .intro {
+            width: fit-content;
+        }
+
+        .footer .top-foot .category {
+            width: fit-content;
+        }
+
+        .footer .top-foot .api {
+            width: 100%;
+        }
+
+            .footer .top-foot .api iframe {
+                width: 100%;
+                margin-left: -50px;
+            }
+
+    .brands .row {
+        margin-left: 8%;
+    }
+
+    .brands .col-5 {
+        margin-left: 35px;
+    }
+
+    .footer .bottom-foot p {
+        width: fit-content;
+    }
+
+    
+}
+
+h3 {
+    height: 50px;
+    background-color: #fafbfd;
+    color: #201c29;
+    text-align: center;
+    padding-top: 10px;
+    margin: 10px 15px;
+    font-size: 28px;
+}

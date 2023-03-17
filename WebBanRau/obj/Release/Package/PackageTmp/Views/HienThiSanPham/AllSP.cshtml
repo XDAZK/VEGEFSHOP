@@ -1,0 +1,91 @@
+﻿@using WebBanRau.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SANPHAM>
+@{
+    ViewBag.Title = "AllSP";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<link href="~/Content/listSanPham.css" rel="stylesheet">
+
+@section Table{
+    <div class="col-md-3" style="margin-top: 30px;">
+        <div class="list-group">
+            <p class="lead">Tất Cả</p>
+            <a href="@Url.Action("AllSP","HienThiSanPham")" class="list-group-item">Tất Cả</a>
+        </div>
+
+        <div class="list-group">
+            <p class="lead">Sản phẩm</p>
+            @Html.Action("LoaiSP", "HienThiSanPham")
+        </div>
+
+        <div class="list-group">
+            <p class="lead">Nhà cung cấp</p>
+            @Html.Action("NhanHieu", "HienThiSanPham")
+        </div>
+    </div>
+}
+<style>
+    .ratings {
+        padding-top: 10px;
+        padding-right: 10px;
+        padding-left: 10px;
+        color: #d17581;
+    }
+</style>
+
+
+@foreach (var item in Model)
+{
+
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("ChitietSP","HienThiSanPham" , new { id = @item.MaSP})">
+                <img style="border-radius: 15%; width: 100%; height: 293px; " alt="@item.TenSP" src="@item.Anhbia">
+            </a>
+            <div class="caption" style="margin-bottom:10px">
+                <h4 class="pull-right"><strong>@String.Format("{0:0,0}", item.Giaban)₫ /@String.Format("{0:0,0}", item.DVT) </strong></h4>
+                <h4>
+                    <a href="@Url.Action("ChitietSP","HienThiSanPham" , new { id = @item.MaSP})">@item.TenSP</a>
+                </h4>
+                <a href="@Url.Action("ThemGioHang","GioHang",new {masp = @item.MaSP, strUrl = Request.Url.ToString() })" class="buy">Thêm Vào Giỏ</a>
+            </div>
+
+            <div class="ratings">
+                <p class="pull-right">12 reviews</p>
+
+                <p>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+}
+
+@section MenuTrang{
+
+    <div class="MenuTrang">
+
+        @Html.PagedListPager(Model, page => Url.Action("AllSP", new { page = page }))
+    </div>
+    <style>
+        .MenuTrang {
+            text-align: center;
+            justify-content: center;
+            display: inline
+        }
+
+        .col-lg-4 {
+            width: 25%;
+        }
+
+        .col-md-3 {
+            width: 23%;
+        }
+    </style>
+}

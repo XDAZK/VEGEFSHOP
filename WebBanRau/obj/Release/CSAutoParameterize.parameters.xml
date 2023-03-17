@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="QLBanRauCuConnectionString-Web.config Connection String" description="QLBanRauCuConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=DESKTOP-CD8QSFA\LOCAL;Initial Catalog=QLBanRauCu;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\THLap\ trình\ web\\WebBanRau\\WebBanRau\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='QLBanRauCuConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

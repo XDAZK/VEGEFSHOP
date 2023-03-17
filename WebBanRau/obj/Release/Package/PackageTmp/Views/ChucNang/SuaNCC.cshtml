@@ -1,0 +1,202 @@
+﻿@model WebBanRau.Models.NCC
+
+@{
+    ViewBag.Title = "SuaNCC";
+    Layout = "~/Views/Layout/Admin/_LayoutAdmin.cshtml";
+}
+
+<style>
+    h2 {
+        font-size: 26px;
+    }
+
+    input {
+        color: #000000;
+        outline: none;
+        font-size: .9em;
+        padding: 1em 3em 1em 1em;
+        border: none;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.85);
+        width: 62%;
+        color: #000;
+        border-radius: 30px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 1px;
+        text-align: center
+    }
+
+        input:hover {
+            transform: scale(1.2, 1);
+        }
+
+    label {
+        margin-left: 25%;
+    }
+
+    .form-horizontal {
+        margin-left: 30%;
+        margin-top: 30px;
+    }
+
+    .btn {
+        margin-left: 8%;
+        color: white;
+        background: #ea2858;
+        border: none;
+        padding: .7em 20px;
+        outline: none;
+        width: 44%;
+        font-size: 1em;
+        cursor: pointer;
+        letter-spacing: 1px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -ms-transition: 0.5s all;
+        border-radius: 30px;
+    }
+
+        .btn:hover {
+            color: #ea2858;
+            background: white;
+        }
+
+    .return {
+        margin-left: 19%;
+        margin-top: 25px;
+        color: white;
+        background: #ea2858;
+        border: none;
+        padding: .7em 55px;
+        outline: none;
+        width: 22%;
+        font-size: 1em;
+        cursor: pointer;
+        letter-spacing: 1px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        transition: 0.5s all;
+        -webkit-transition: 0.5s all;
+        -o-transition: 0.5s all;
+        -moz-transition: 0.5s all;
+        -ms-transition: 0.5s all;
+        border-radius: 30px;
+    }
+
+        .return:hover {
+            color: #ea2858;
+            background: white;
+        }
+
+    @@media(max-width: 1040px) {
+        .return {
+            margin-left: 8%;
+            padding: 0.7em 75px;
+            margin-top: 0px;
+            width: 44%;
+        }
+    }
+
+    @@media(max-width: 780px) {
+        label {
+            margin-left: 22%;
+        }
+
+        .return {
+            margin-left: 8%;
+            padding: 0.7em 47px;
+            margin-top: 0px;
+            width: 44%;
+        }
+    }
+
+    @@media(max-width: 430px) {
+        label {
+            margin-left: 20%;
+        }
+
+        .return {
+            margin-left: 8%;
+            margin-top: 0px;
+            width: 44%;
+            padding: 0.7em 25px;
+        }
+    }
+
+    @@media(max-width: 380px) {
+        label {
+            margin-left: 18%;
+        }
+
+        .return {
+            margin-left: 6%;
+            margin-top: 0px;
+            width: 49%;
+            padding: 0.7em 24px;
+        }
+    }
+
+    @@media(max-width: 320px) {
+        label {
+            margin-left: 15%;
+        }
+
+        .return {
+            margin-left: 6%;
+            margin-top: 0px;
+            width: 49%;
+            padding: 0.7em 14px;
+        }
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h2 style="text-align: center;">Thông Tin Nhà Cung Cấp</h2>
+    <hr />
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaNCC)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TenNCC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TenNCC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TenNCC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Diachi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Diachi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Diachi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dienthoai, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dienthoai, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Dienthoai, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="LƯU" class="btn btn-default" />
+            </div>
+            <div class="return">
+                @Html.ActionLink("QUAY LẠI", "DSNCC")
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Layout/Contact/_LayoutContact.cshtml";
+}
+
+<style>
+    body {
+        font-size: 16px;
+        background-image: url(/Image/nhung-loai-trai-cay-tot-cho-da-mat-nho-1024x682.jpg);
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        -ms-background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        font-family: 'Open Sans', sans-serif;
+        color: white;
+    }
+
+    .fa {
+        text-align: center;
+        font-size: 3em;
+        letter-spacing: 8px;
+        font-weight: 500;
+        font-family: 'Dosis', sans-serif;
+        text-transform: uppercase;
+        text-shadow: 5px 3px 5px #101010;
+    }
+
+    textarea {
+        margin: 10px 0;
+        outline: none;
+        font-size: .9em;
+        padding: 1em 3em 1em 1em;
+        border: none;
+        margin-bottom: 0.3em;
+        background: rgba(255, 255, 255, 0.85);
+        width: 100%;
+        height: 100px;
+        color: #000;
+        border-radius: 30px;
+        font-weight: 400;
+        font-family: 'Open Sans', sans-serif;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+
+        textarea:focus {
+            height: 50%;
+            text-align: unset;
+            padding: 15px 15px;
+        }
+
+    .Support {
+        padding-top: 10%;
+    }
+
+    .in {
+        width: 30%;
+        margin-top: 20px;
+        margin-left: 35%;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <div class="contact-box">
+        <div style="height:700px;" class="contact-left">
+            <img src="~/Content/images/logoraucu.png">
+        </div>
+        <div class="contact-right">
+            <div class="right-top">
+                <div class="row">
+                    <p> <h2>Thông Tin</h2></p>
+                </div>
+                <div class="row">
+                    <p><img src="~/Content/images/home.png">Địa Chỉ: 130 Nguyễn Đình Chiểu, Phường Võ Thị Sáu, Quận 3, TP.Hồ Chí Minh <br></p>
+                    <p>Bán Lẻ: 028 6673 3350</p>
+                </div>
+                <div class="clear"></div>
+                <div class="row">
+                    <p><img src="~/Content/images/phone.png">Địa Chỉ: 72 Quận Bình Thạnh TP Hồ Chí Minh <br></p>
+                    <p>Bán Lẻ: 0933 947052</p>
+                </div>
+                <div class="clear"></div>
+                <div class="row">
+                    <p><img src="~/Content/images/phone.png">Địa Chỉ: 241/43 Quận 10 TP Hồ Chí Minh <br></p>
+                    <p>Bán Lẻ: 0933 947052</p>
+                </div>
+                <div class="clear"></div>
+                <div class="row">
+                    <p><img src="~/Content/images/email.png"></p>
+                    <br />
+                    <p>Email: organica@organica.vn</p>
+                </div>
+                <div class="clear"></div>
+                <div class="row">
+                    <p><img src="~/Content/images/time.png"></p>
+                    <br />
+                    <p>Thời Gian Làm Việc: 8H-22H Thứ Hai-Chủ Nhật</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="right-bottom">
+                <h2>Mạng Xã Hội</h2>
+
+                <a href="#"><img src="~/Content/images/fb.png"></a>
+                <a href="#"><img src="~/Content/images/twitter.png"></a>
+                <a href="#"><img src="~/Content/images/instagram.png"></a>
+                <div class="clear"></div>
+                <div style="margin-top:25px;" class="back">
+                    <a class="submit" href="@Url.Action("Index", "HienThiSanPham")" style="margin-top: 50px">Back To Home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="Support">
+        <div class="header-w3l">
+            <h1>Đóng Góp Ý Kiến</h1>
+        </div>
+
+        <div class="pom-agile">
+            <textarea placeholder="Ý Kiến Của Các Bạn Là Điều Giúp Chúng Tôi Tốt Hơn Mỗi Ngày" name="LyDo" class="pass" type="text" required=""></textarea>
+            <span class="icon2"><i aria-hidden="true"></i></span>
+            <input class="submit in" type="Submit" value="Gửi">
+        </div>
+    </div>
+}

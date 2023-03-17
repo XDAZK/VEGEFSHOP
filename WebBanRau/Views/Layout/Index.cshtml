@@ -1,0 +1,520 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop bán rau củ | Organica</title>
+    <link rel="shortcut icon" href="~/Content/images/oga.png" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <script src="~/Content/js/all.min.js"></script>
+    <script src="~/Content/js/moment.js"></script>
+    <script src="~/Content/js/index.js"></script>
+
+    <style>
+
+        input.search {
+            border-radius: 15px;
+            border-radius: 15px 15px;
+            border-radius: 15px 15px 15px;
+            border-radius: 15px 15px 15px;
+            margin-top: 0.3em;
+        }
+
+        .submit {
+            border-radius: 30px;
+            background: #ffffff;
+            border: 30px none #b1154a;
+        }
+
+            .submit:hover {
+                background: #90b331;
+            }
+
+        .container {
+            padding-top: 15px;
+        }
+        /*Design button Top*/
+        #bttop {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            bottom: 10px;
+            right: 30px;
+            border: none;
+            background-color: #FF0000;
+            color: #FFF;
+            border-radius: 4px;
+            cursor: pointer;
+            display: none;
+        }
+
+            #bttop:hover {
+                background-color: blue;
+            }
+        /*Design button Login*/
+        .Login {
+            float: right;
+            text-align: center;
+            list-style: none;
+        }
+
+            .Login a {
+                margin-bottom: 20px;
+                line-height: 40px;
+                padding-right: 20px;
+                text-decoration: none;
+                color: #9D9D9D;
+                display: block;
+            }
+
+                .Login a:hover {
+                    color: #90b331;
+                    background-color: transparent;
+                }
+
+
+        a {
+            color: #000000;
+        }
+
+        .footer {
+            width: 100%;
+            margin-top: 50px;
+            background-color: #201c29;
+            position: absolute;
+        }
+
+            .footer .top-foot {
+                float: left;
+                color: #fff;
+            }
+
+                .footer .top-foot .intro {
+                    width: 20%;
+                    float: left;
+                    margin-right: 10px;
+                }
+
+                    .footer .top-foot .intro p {
+                        width: fit-content;
+                    }
+
+                .footer .top-foot .category {
+                    width: 20%;
+                    float: left;
+                    margin-right: 10px;
+                }
+
+                .footer .top-foot .api {
+                    width: 58%;
+                    float: left;
+                }
+
+                    .footer .top-foot .api iframe {
+                        width: 325px;
+                        height: 300px;
+                    }
+
+            .footer .bottom-foot {
+                width: 100%;
+                float: left;
+                margin-top: 20px;
+            }
+
+                .footer .bottom-foot p {
+                    color: #fff;
+                    float: left;
+                    width: 50%;
+                }
+
+        @@media(max-width:1024px) {
+            .footer .top-foot h2 {
+                font-size: 20px;
+            }
+
+            .footer .top-foot .api {
+                width: 57%;
+            }
+
+                .footer .top-foot .api iframe {
+                    width: 265px;
+                }
+        }
+
+        .microphone {
+            cursor: pointer;
+        }
+
+        .navbar-inverse .navbar-nav > li > a:hover {
+            color: #90b331;
+        }
+
+
+
+        .dropdown {
+            float: right;
+            text-align: center;
+            list-style: none;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a, .dropbtn {
+                margin-bottom: 20px;
+                line-height: 40px;
+                padding-right: 20px;
+                text-decoration: none;
+                color: black;
+                display: block;
+            }
+
+
+                li a:hover, .dropdown:hover .dropbtn {
+                    color: #90b331;
+                    background-color: transparent;
+                }
+
+            li.dropdown {
+                display: inline-block;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                color: black;
+                padding: 10px 10px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #33c319;
+                    color: white;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            width: 1500px;
+        }
+        .ai {
+            text-align: center;
+        }
+        .MenuTrang {
+            text-align: center;
+            justify-content: center;
+            display: inline
+        }
+
+        .col-lg-4 {
+            width: 25%;
+        }
+
+        .col-md-3 {
+            width: 23%;
+        }
+
+
+        .ratings {
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            color: #d17581;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a style="font-family: 'Comic Sans MS'; font-size: x-large; color: #90b331;" class="navbar-brand" href="@Url.Action("Index","HienThiSanPham")">Organica</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div style=" font-size:larger; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a></a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("AllSP","HienThiSanPham")">Loại Sản Phẩm</a>
+                    </li>
+
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("News","HienThiSanPham")">Tin Tức</a>
+
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Contact","HienThiSanPham")">Liên Hệ</a>
+
+                    </li>
+
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        <a></a>
+                    </li>
+                    <li>
+                        @using (Html.BeginForm("LayKQTimkiem", "Timkiem"))
+                        {
+                            <input class="search" placeholder="Tìm kiếm...." name="tukhoa" type="text">
+
+                            <button class="submit" border-radius="30px type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+
+                        }
+
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="Login">
+                        @Html.Action("SoLuongGioHang", "GioHang")
+                    </li>
+
+                    @if (Session["User"] == null)
+                    {
+                        <li class="Login"><a href="@Url.Action("SignUp","NguoiDung")">Đăng Ký</a></li>
+                        <li class="Login"><a href="@Url.Action("Login","NguoiDung")">Đăng Nhập</a></li>
+                    }
+                    else
+                    {
+
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">
+                                Xin Chào @Session["User"]
+                            </a>
+
+                            <div class="dropdown-content">
+                                <a href="@Url.Action("LogOut","NguoiDung")">Đăng Xuất</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+                <script src="https://code.iconify.design/3/3.0.0/iconify.min.js"></script>
+                <button class="submit" onclick="init()" border-radius="30px type="submit">
+                    <span class="iconify" data-icon="bxs:camera" style="font-size: 24px;"></span>                                   
+                        <button class="submit" onclick="history.go(0)">
+                            <span class="iconify" data-icon="mdi:camera-off" style="font-size: 24px;">
+                            </span>
+                        </button>                
+                </button>            
+                <div id="webcam-container"></div>
+                <div class="ai" id="label-container"></div>
+                <script src="@Url.Content("https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js")"></script>
+                <script src="@Url.Content("https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js")"></script>
+                <script src="https://code.responsivevoice.org/responsivevoice.js?key=FGsu467N"></script>
+                <script type="text/javascript">
+                    // More API functions here:
+                    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+                    // the link to your model provided by Teachable Machine export panel
+                    const URL = "https://teachablemachine.withgoogle.com/models/dOSQYfsCv/";
+
+                    let model, webcam, labelContainer, maxPredictions;
+                    let lastLabel = ''
+                    // Load the image model and setup the webcam
+                    async function init() {
+                        const modelURL = URL + "model.json";
+                        const metadataURL = URL + "metadata.json";
+
+                        // load the model and metadata
+                        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                        // or files from your local hard drive
+                        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                        model = await tmImage.load(modelURL, metadataURL);
+                        maxPredictions = model.getTotalClasses();
+
+                        // Convenience function to setup a webcam
+                        const flip = true; // whether to flip the webcam
+                        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+
+                        await webcam.setup(); // request access to the webcam
+                        await webcam.play();
+                        //await webcam.pause();
+
+                        window.requestAnimationFrame(loop);
+
+                        // append elements to the DOM
+                        document.getElementById("webcam-container").appendChild(webcam.canvas);
+                        labelContainer = document.getElementById("label-container");                      
+
+                    }
+                   
+
+                    async function loop() {
+                        webcam.update(); // update the webcam frame
+                        await predict();
+                        window.requestAnimationFrame(loop);
+                    }
+
+                    // run the webcam image through the image model
+                    async function predict() {
+                        // predict can take in an image, video or canvas html element
+                        const predictions = await model.predictTopK(webcam.canvas, 1);
+
+
+                        const label = predictions[0].className;
+                        if (label !== lastLabel) {
+                            lastLabel = label;
+                            responsiveVoice.speak(label, "Vietnamese Male");
+                            labelContainer.innerText = predictions[0].className;
+                        }
+                        
+
+
+                    }
+
+                </script>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+    @RenderSection("GioHang", false)
+    <!-- Page Content -->
+    <div class="container">
+        <!-- New Product -->
+        <div class="row">
+            @RenderSection("Table", false)
+            <div class="col-md-9">
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+            @RenderSection("MenuTrang", false)
+        </div>
+        @RenderSection("Footer", false)
+    </div>
+    <!-- /.container -->
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="top-foot">
+                <div class="intro">
+                    <h2>Về Chúng Tôi</h2>
+                    <a style="float: left; color: #fafbfd; " href="@Url.Action("Login","Admin")">O</a>
+                    <p>rganica có trang trại rau nhiệt đới đầu tiên tại Việt Nam đạt chứng nhận hữu cơ của Bộ Nông nghiệp Mỹ (USDA) & EU Organic Farming (Liên minh châu Âu)</p>
+                </div>
+                <div class="category">
+                    <h2>Liên Hệ</h2>
+                    <p>Địa Chỉ: 130 Nguyễn Đình Chiểu, Phường Võ Thị Sáu, Quận 3, TP.Hồ Chí Minh</p>
+                    <p>Hotline: 0774685759</p>
+                    <p>Email:  organica@organica.vn</p>
+                </div>
+
+                <div class="api">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.3195676820724!2d106.70886021462249!3d10.786818092314448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1f54d0d6bf%3A0xd2015ee958f45b8a!2zQ-G7rWEgSMOgbmcgVGjhu7FjIFBo4bqpbSBI4buvdSBDxqEgLSBPcmdhbmljYSBCYSBTb24gUXXhuq1uIDE!5e0!3m2!1svi!2s!4v1651939611497!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fthucphamhuucoorganica&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                            style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                    </iframe>
+                </div>
+
+            </div>
+
+            <div class="bottom-foot">
+
+                <a style="float: left; color: #fafbfd; " href="@Url.Action("Login","Admin")">C</a>
+                <p style="float: left;">opyright &copy; Your Website 2022</p>
+
+            </div>
+
+        </div>
+        <!-- Messenger Plugin chat Code -->
+        <div id="fb-root"></div>
+
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat">
+        </div>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "107025098815676");
+            chatbox.setAttribute("attribution", "biz_inbox");
+        </script>
+
+        <!-- Your SDK code -->
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    xfbml: true,
+                    version: 'v15.0'
+                });
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script>
+            <!-- Google tag(gtag.js)-- >
+                    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9GNBG1F6HT"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-9GNBG1F6HT');
+        </script>
+        </script>
+
+
+</body>
+</html>
+
